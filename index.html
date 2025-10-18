@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" href="./assets/logo.png" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Alef&family=Frank+Ruhl+Libre&display=swap" rel="stylesheet">
+  <title>Ziv Yoga</title>
+  <style>
+    /* Reset and basics */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      scroll-behavior: smooth;
+      scroll-snap-type: y mandatory;
+      overflow-y: scroll;
+      font-family: 'Alef', sans-serif;
+      text-align: center;
+      direction: rtl; /* Right-to-left for Hebrew */
+    }
+
+    section {
+      scroll-snap-align: start;
+      position: relative;
+      height: 105vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 20px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .rtl-text {
+      direction: rtl;
+      text-align: right;
+      width: 100%;
+      max-width: 1000px;
+      font-size: 18px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+
+    /* Overlay */
+    .overlay::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4); /* Dark overlay */
+      z-index: 0;
+    }
+
+    .overlay > .content {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Logo */
+    .logo {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #fff;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    }
+
+    /* Content */
+    .content {
+      max-width: 700px;
+      font-size: 1.3rem;
+      color: #fff;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+      padding: 0 20px;
+    }
+
+    /* Button */
+    .signup-button {
+      padding: 15px 30px;
+      font-size: 1rem;
+      margin-top: 30px;
+      background-color: #fff;
+      color: #333;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .signup-button:hover {
+      background-color: #ddd;
+    }
+
+    /* Scroll Animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Section background images */
+    .bg-ziv-namaste { background-image: url('./assets/ziv-namaste.jfif'); }
+    .bg-ziv-pose { background-image: url('./assets/ziv-pose.jfif'); }
+    .bg-relax-oil { background-image: url('./assets/relax-oil.jfif'); }
+    .bg-hair-oil { background-image: url('./assets/hair-oil.jfif'); }
+    .bg-plant-oil { background-image: url('./assets/plant-oil.jfif'); }
+    .bg-place-hall { background-image: url('./assets/place-hall.jfif'); }
+    .bg-place-gong { background-image: url('./assets/place-gong.jfif'); }
+    .bg-place-door { background-image: url('./assets/place-door.jfif'); }
+
+    .rtl-bullet-list {
+      direction: rtl;
+      text-align: right;
+      list-style-position: inside;
+      max-width: 700px;
+      margin: 0 auto;
+      color: white;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+      font-size: 1.2rem;
+      padding-left: 0; /* Optional: remove default left padding */
+    }
+
+    #scroll-indicator {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.2rem;
+      color: white;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+      animation: bounce 2s infinite;
+      z-index: 10;
+      pointer-events: none; /* Prevents interfering with clicks */
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+
+    /* Hide when user reaches bottom */
+    #scroll-indicator.hidden {
+      opacity: 0;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translate(-50%, 0); }
+      50%      { transform: translate(-50%, -10px); }
+    }
+
+
+    @media (max-width: 600px) {
+      .logo {
+        width: 150px;
+        height: 150px;
+      }
+
+      .content {
+        font-size: 1rem;
+      }
+
+      .signup-button {
+        padding: 12px 24px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="bg-ziv-namaste overlay">
+    <img src="./assets/logo.png" alt="Logo" class="logo fade-in" />
+  </br>
+    <div class="content fade-in">
+      <h1>ריטריט יום</h1>
+      <h1>האור הפנימי ☀️</h1>
+      </br>
+      <p>ריטריט יום המשלב יוגה, כתיבה וסדנת שמנים אתריים וארומתרפיה</p>
+      <p>🌿 מתי? - 12.12.2025, יום שישי 10:00-13:00</p>
+      <p>🌿 איפה? - ״מפתח Soul״ בכפר סבא</p>
+      </br></br></br></br></br></br></br></br></br></br></br></br></br>
+    <h3>מספר המקומות מוגבל!</h3>
+    </div>
+  </section>
+
+  <section class="bg-relax-oil overlay">
+    <div class="content fade-in">
+      <h2>🌸 קצת על הריטריט</h2>
+      </br>
+      <p>בחנוכה הקרוב, אנחנו נפגש ונדליק את האור מבפנים.</p>
+      <p>ריטריט יום המשלב יוגה, כתיבה אינטואיטיבית וסדנת ארומתרפיה והכנת שמנים אתריים שיפתחו את הנשימה, את הלב ואת האור הפנימי שלך ✨</p>
+    </div>
+  </section>
+
+  <section class="bg-place-gong overlay">
+    <div class="content fade-in">
+      <h2>📃 מה יהיה לנו בריטריט?</h2>
+      </br>
+      <p>🌿 תרגול יוגה ויניאסה שמתאים לכל הרמות גם למתרגלים ותיקים וגם למי שזו הפעם הראשונה שלה או שלו על המזרן 😊</p>
+      </br>
+      <p>🌿 לאחר התרגול נקדיש זמן לכתיבה אינטואיטיבית קצרה 🌸</p>
+      </br>
+      <p>🌿 נשנושים מפנקים ותה חם לקראת הסדנה ☕️</p>
+      </br>
+      <p>🌿 סדנת ארומתרפיה והכנת שמנים אתריים 🤍</p>
+    </div>
+  </section>
+
+  <section class="bg-ziv-pose overlay">
+    <div class="content fade-in">
+      <h2>🍃 קצת עליי</h2>
+      </br>
+      <p>אני זיו, מורה ליוגה ויניאסה🧘🏼‍♀️</p>
+      </br>
+      <p>המטרה שלי היא להעביר את דרך היוגה דרך התרגול עצמוכל פעם כשאנחנו מופיעים על המזרן</p>
+      <p>אני כאן כדי לעזור לכם לקחת את הכלים שאנחנו לומדים בתרגול אל חיי היום יום, ולחיות מתוך הדרך של היוגה 🩵</p>
+    </div>
+  </section>
+
+  <!-- Section 3 -->
+  <section class="bg-place-hall overlay">
+    <div class="content fade-in">
+      <h2>📍 איפה הריטריט יתקיים?</h2>
+      </br>
+      <p>הריטריט יתקיים במרחב הסדנאות הכי יפה בארץ - “מפתח Soul” בכפר סבא 🌿</p>
+      </br>
+      <p>מקום קסום ומואר, שכבר מהצעדים הראשונים מרגישים בו את השקט, את האנרגיה הטובה ואת הלב נפתח 🩷</p>
+    </div>
+  </section>
+
+  <!-- Section 5 -->
+  <section class="bg-plant-oil overlay">
+    <div class="content fade-in">
+      <h2>קצת על סדנת הארומתרפיה והכנת שמנים אתריים</h2>
+      </br>
+      <p>ליזה - שמגיעה להעביר לנו את הסדנה - היא נטורופתית, ארומתרפיסטית והרבליסטית קלינית.</p>
+      <p>ארומתרפיה היא כלי ייחודי, טבעי ושימושי בחיי היום-יום של כל אחד ואחת מאיתנו!</p>
+      </br>
+      <p>בסדנה אנחנו נלמד לשלב את השמנים האתריים בחיים שלנו, בקוסמטיקה ובריפוי גוף ונפש🪷</p>
+      <p>נדבר על היחודיות של כל שמן, הסכנות שבשימוש לא נכון, על חוש הריח שלנו, על הקשר בין הנפש לבריאות גופנית ואפילו נרקח 2 מוצרים לעצמנו לשימוש אישי🤩</p>
+    </div>
+  </section>
+  
+  <!-- Section 6: Sign-up -->
+  <section class="bg-place-door overlay">
+    <div class="content fade-in">
+        <h1>מוכנ.ה להצטרף?</h1>
+      </br>
+      <p>ולחוות רוגע והתחדשות שממנה תצא.י עם כלים ליום יום</p>
+      </br>
+      <p>לחצו על הקישור כדי ליצור קשר 💕</p>
+      <a href="https://wa.link/nrt86x" target="_blank">
+        <button class="signup-button">אני רוצה להירשם!</button>
+      </a>
+    </div>
+  </section>
+
+  <section class="bg-hair-oil overlay">
+    <div class="content fade-in">
+      <h1>שאלות נפוצות</h1>
+      </br>
+      <h3>איפה יתקיים הריטריט?</h3>
+      <p>הריטריט יתקיים במקום קסום שנמצא בכפר סבא שנקרא "מפתח Soul" - מרחב הוליסטי אשר מיועד לאירועים בדיוק כמו שאנחנו ניפגש בו, רק מהמבט הראשון אתן תכנסו לאווירה ותתאהבו!</p>
+      <p>יש מלא חנייה ברחובות הסמוכים וגם קיים חניון בתשלום הנמצא בכתובת "יוחנן אלכסנדר , כפר סבא"</p>
+      </br>
+      <h3>האם אני צריכ.ה להביא איתי משהו לריטריט?</h3>
+      <p>אין צורך להביא שום דבר איתכם! יש הכל כולל מזרני יוגה במקום🌸</p>
+      </br>
+      <h3>האם ההשתתפות דורשת נסיון מוקדם בתרגול יוגה?</h3>
+      <p>לא! התרגול מותאם לכל הרמות, בין אתם מתרגלים קבוע או שזאת הפעם הראשונה שלכם על המזרן 🧘🏼‍♀️</p>
+      </br>
+    </div>
+  </section>
+
+  <div id="scroll-indicator">    
+    ↓ גלול למטה
+  </div>
+  
+  <!-- JS for Scroll Animations -->
+  <script>
+    const fadeElements = document.querySelectorAll('.fade-in');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.3
+    });
+
+    fadeElements.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
